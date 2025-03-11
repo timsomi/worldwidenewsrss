@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Feed</title>
+    <title>International News Feed</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
         h1 { text-align: center; }
@@ -19,7 +19,7 @@
     <script>
         async function loadRSS() {
             try {
-                let response = await fetch('http://127.0.0.1:5050/rss');
+                let response = await fetch('https://worldwidenewsrss.onrender.com/rss');
                 let text = await response.text();
                 let parser = new DOMParser();
                 let xml = parser.parseFromString(text, 'application/xml');
