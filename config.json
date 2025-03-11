@@ -1,0 +1,7 @@
+{
+  "rss_feeds": [
+    "https://feeds.bbci.co.uk/news/world/rss.xml",
+    "https://www.aljazeera.com/xml/rss/all.xml",
+    "http://rss.cnn.com/rss/edition_world.rss"
+  ]
+}
