@@ -1,5 +1,5 @@
 import json
-from flask import Flask, Response
+from flask import Flask, Response, render_template
 from flask_cors import CORS
 from datetime import datetime, timezone
 import feedparser
@@ -67,9 +67,6 @@ def rss_feed():
     response = Response(rss_data, mimetype='application/xml')
     response.headers['Access-Control-Allow-Origin'] = '*'  
     return response
-
-
-import os
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5050))  # Use Render's assigned PORT
