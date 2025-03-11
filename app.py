@@ -56,6 +56,10 @@ def generate_rss():
     </rss>'''
     
     return rss_feed
+    
+@app.route('/')
+def home():
+    return render_template("index.html")  # Renders the index page
 
 @app.route('/rss')
 def rss_feed():
