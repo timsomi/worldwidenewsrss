@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Feed</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
+        h1 { text-align: center; }
+        .news-item { margin-bottom: 20px; padding: 10px; border-bottom: 1px solid #ccc; }
+        .news-item a { font-size: 18px; font-weight: bold; text-decoration: none; color: blue; }
+        .news-item p { margin: 5px 0; color: #555; }
+    </style>
+</head>
+<body>
+    <h1>Latest News</h1>
+    <div id="news-container">Loading news...</div>
+    
+    <script>
+        async function loadRSS() {
+            try {
+                let response = await fetch('http://127.0.0.1:5050/rss');
+                let text = await response.text();
+                let parser = new DOMParser();
+                let xml = parser.parseFromString(text, 'application/xml');
+                let items = xml.querySelectorAll('item');
+                let newsContainer = document.getElementById('news-container');
+                newsContainer.innerHTML = '';
+
+                items.forEach(item => {
+                    let title = item.querySelector('title').textContent;
+                    let link = item.querySelector('link').textContent;
+                    let source = item.querySelector('source')?.textContent || 'Unknown Source';
+                    let pubDate = item.querySelector('pubDate')?.textContent || '';
+
+                    let newsItem = document.createElement('div');
+                    newsItem.classList.add('news-item');
+                    newsItem.innerHTML = `
+                        <a href="${link}" target="_blank">${title}</a>
+                        <p><strong>Source:</strong> ${source}</p>
+                        <p><strong>Published:</strong> ${pubDate}</p>
+                    `;
+                    newsContainer.appendChild(newsItem);
+                });
+            } catch (error) {
+                document.getElementById('news-container').innerText = 'Failed to load news';
+            }
+        }
+
+        loadRSS();
+    </script>
+</body>
+</html>
