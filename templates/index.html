@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>International News Feed</title>
+    <title>World Wide News Feed</title>
     <style>
+        header {
+            background-color: #333;
+            color: white;
+            padding: 22px 0;
+            position: relative;
+            }
+        .datetime {
+            font-size: 1.2em;
+            font-weight: bold;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            }
+        
         body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
         h1 { text-align: center; }
         .news-item { margin-bottom: 20px; padding: 10px; border-bottom: 1px solid #ccc; }
@@ -13,6 +27,9 @@
     </style>
 </head>
 <body>
+    <header>
+        <div class="datetime" id="datetime"></div>
+    </header>
     <h1>Latest News</h1>
     <div id="news-container">Loading news...</div>
     
@@ -49,5 +66,19 @@
 
         loadRSS();
     </script>
+    
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const options = { month: 'short', day: 'numeric' };
+            const formattedDate = now.toLocaleDateString('en-US', options);
+            const formattedTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
+            document.getElementById('datetime').textContent = `${formattedDate} ${formattedTime}`;
+        }
+        
+        updateDateTime();
+        setInterval(updateDateTime, 60000);
+    </script>
+    
 </body>
 </html>
