@@ -2,6 +2,12 @@
   "rss_feeds": [
     "https://feeds.bbci.co.uk/news/world/rss.xml",
     "https://www.aljazeera.com/xml/rss/all.xml",
-    "http://rss.cnn.com/rss/edition_world.rss"
+    "http://rss.cnn.com/rss/edition_world.rss",
+    "https://www.cbsnews.com/latest/rss/world",
+    "https://www.france24.com/en/rss",
+    "http://www.npr.org/rss/rss.php?id=1004",
+    "https://www.yahoo.com/news/rss/world/",
+    "http://feeds.skynews.com/feeds/rss/world.xml",
+    "https://www.thecipherbrief.com/feed"
   ]
 }
