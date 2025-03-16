@@ -15,18 +15,50 @@
         header {
             background-color: #0056b3;
             color: white;
-            padding: 15px 0;
-            text-align: center;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             position: relative;
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .title {
+            flex-grow: 1;
+            text-align: center;
             font-size: 1.2em;
             font-weight: bold;
         }
         .datetime {
-            font-size: 1em;
+            font-size: 0.9em;
+            margin-right: 15px;
+            white-space: nowrap;
+        }
+        .menu {
+            display: none;
             position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 50px;
+            left: 10px;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 180px;
+            text-align: left;
+            z-index: 1000;
+        }
+        .menu a {
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            border-bottom: 1px solid #ddd;
+        }
+        .menu a:hover {
+            background: #f1f1f1;
         }
         .container {
             max-width: 900px;
@@ -65,29 +97,31 @@
             margin: 5px 0;
             color: #555;
         }
-        .btn {
-            display: inline-block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            color: white;
-            background: #007bff;
-            border-radius: 5px;
-            transition: background 0.3s;
-            text-align: center;
-            width: 200px;
-        }
-        .btn:hover {
-            background: #0056b3;
+
+        @media (max-width: 600px) {
+            .title {
+                font-size: 1em;
+            }
+            .datetime {
+                font-size: 0.8em;
+                margin-right: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        World Wide News Feed
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="title">World Wide News Feed</div>
         <div class="datetime" id="datetime"></div>
     </header>
+
+    <div class="menu" id="dropdownMenu">
+        <a href="#">Home</a>
+        <a href="#">Support</a>
+        <a href="#">Donate</a>
+        <a href="#">Get Involved</a>
+    </div>
 
     <div class="container">
         <h1>Latest News</h1>
@@ -95,6 +129,11 @@
     </div>
     
     <script>
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
         async function loadRSS() {
             try {
                 let response = await fetch('https://worldwidenewsrss.onrender.com/rss');
@@ -126,9 +165,7 @@
         }
 
         loadRSS();
-    </script>
-    
-    <script>
+
         function updateDateTime() {
             const now = new Date();
             const options = { month: 'short', day: 'numeric' };
@@ -139,6 +176,15 @@
         
         updateDateTime();
         setInterval(updateDateTime, 60000);
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function(event) {
+            const menu = document.getElementById("dropdownMenu");
+            const icon = document.querySelector(".menu-icon");
+            if (!menu.contains(event.target) && !icon.contains(event.target)) {
+                menu.style.display = "none";
+            }
+        });
     </script>
 </body>
 </html>
