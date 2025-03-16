@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Support Us - World Wide News RSS</title>
+</head>
+<body>
+    <h1>Support Us!</h1>
+    <h2>Donate</h2>
+    <p>Thank you for supporting <strong>World Wide News RSS</strong>, which is funded by users like you! Producing World Wide News RSS requires software engineers, designers, system administrators, and server infrastructure. So if you like World Wide News RSS, the best way to ensure it remains available is to make a donation.</p>
+    <a href="#">Donate</a>
+    
+    <h2>Help</h2>
+    <p>Curious about helping? You don’t need to be an expert or know how to code to help other users or offer suggestions about improving the experience! Join us in this open-source project where anyone can participate in the World Wide News RSS community.</p>
+    <a href="#">Get Involved</a>
+    
+    <h3>Share ideas and feedback.</h3>
+    <a href="#">Community Forum</a>
+    
+    <h3>Help make World Wide News RSS better.</h3>
+    <a href="#">Get the Beta</a>
+    
+    <h2>Questions? Problems?</h2>
+    <p>Post your general World Wide News RSS usage questions or problems on the support page, where many knowledgeable users can help you.</p>
+    <a href="#">Support Page</a>
+    
+    <h2>Report</h2>
+    <p>Think you’ve found a new problem or rough edge? Create a bug report so we can make sure it gets solved, resulting in a better World Wide News RSS experience for all.</p>
+    <a href="#">Report a Bug</a>
+    
+    <h2>Crashed?</h2>
+    <p>If Crash Reporter appears when World Wide News RSS crashes, please provide as many details as possible to help developers.</p>
+    <ul>
+        <li>In World Wide News RSS, go to <strong>Help > More Troubleshooting Information</strong>, scroll to "Crash Reports", click a recent report link to open the crash report page.</li>
+        <li>Click the <strong>Bugzilla</strong> tab, then click on an existing bug report under "Related Bugs" and add a comment to the bug, or click "World Wide News RSS" to submit a new bug report.</li>
+    </ul>
+    
+    <h3>Crash Reporter</h3>
+</body>
+</html>
+
