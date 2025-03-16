@@ -36,8 +36,8 @@ def rss_feed():
     rss_feed = f'''<?xml version="1.0" encoding="UTF-8" ?>
     <rss version="2.0">
         <channel>
-            <title>Aggregated World News</title>
-            <link>https://yourwebsite.com/news</link>
+            <title>World Wide News</title>
+            <link>https://worldwidenewsrss.onrender.com</link>
             <description>Real-time global news from various sources</description>
             <lastBuildDate>{datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")}</lastBuildDate>
     '''
